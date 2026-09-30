@@ -22,6 +22,8 @@
   --warn:#9C6B12; --warn-soft:#FBF0DC; --warn-ink:#7A5209; --warn-line:#EAD3A0;
   --bad:#B5502E; --bad-soft:#FBEAE3; --bad-ink:#8C3C21; --bad-line:#EAC3B2;
   --crit:#B23A3A; --crit-soft:#FAE7E7; --crit-ink:#8A2C2C; --crit-line:#EBBEBE;
+  --violet:#7A4FC9; --violet-soft:#F1EAFB; --violet-ink:#5B3699; --violet-line:#D9C4F0;
+  --yellow:#A8850C; --yellow-soft:#FBF3D0; --yellow-ink:#7A5F09; --yellow-line:#EBDB8E;
   --shadow: 0 1px 2px rgba(30,32,35,.04), 0 8px 24px -12px rgba(30,32,35,.10);
 }
 @media (prefers-color-scheme: dark){
@@ -34,6 +36,8 @@
     --warn:#E3B15A; --warn-soft:#392C13; --warn-ink:#F0CD8E; --warn-line:#5A4620;
     --bad:#E08863; --bad-soft:#392319; --bad-ink:#F0AF8E; --bad-line:#5B3B29;
     --crit:#E17878; --crit-soft:#391D1D; --crit-ink:#F0A8A8; --crit-line:#5B2D2D;
+    --violet:#B491ED; --violet-soft:#2A2140; --violet-ink:#DAC4F7; --violet-line:#493767;
+    --yellow:#E3C55A; --yellow-soft:#3A3115; --yellow-ink:#F0DA8E; --yellow-line:#5C4C20;
     --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
   }
 }
@@ -46,6 +50,8 @@
   --warn:#E3B15A; --warn-soft:#392C13; --warn-ink:#F0CD8E; --warn-line:#5A4620;
   --bad:#E08863; --bad-soft:#392319; --bad-ink:#F0AF8E; --bad-line:#5B3B29;
   --crit:#E17878; --crit-soft:#391D1D; --crit-ink:#F0A8A8; --crit-line:#5B2D2D;
+  --violet:#B491ED; --violet-soft:#2A2140; --violet-ink:#DAC4F7; --violet-line:#493767;
+  --yellow:#E3C55A; --yellow-soft:#3A3115; --yellow-ink:#F0DA8E; --yellow-line:#5C4C20;
   --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.5);
 }
 
@@ -107,11 +113,12 @@ thead th{
   letter-spacing:.05em; text-transform:uppercase; color:var(--ink-faint);
   background:var(--surface-2); padding:11px 16px; border-bottom:1px solid var(--line);
 }
-tbody td{ padding:12px 16px; border-bottom:1px solid var(--line); color:var(--ink); }
+tbody td{ padding:12px 16px; border-bottom:1px solid var(--line); color:var(--ink); vertical-align:top; background:var(--surface); }
 tbody tr:last-child td{ border-bottom:none; }
-tbody tr:nth-child(even){ background:var(--surface); }
-tbody tr:nth-child(odd){ background:color-mix(in srgb, var(--surface-2) 45%, var(--surface)); }
 td.num{ font-variant-numeric:tabular-nums; color:var(--ink-soft); }
+tbody tr.mp-ozon td{ background:var(--accent-soft); }
+tbody tr.mp-wb td{ background:var(--violet-soft); }
+tbody tr.mp-ya td{ background:var(--yellow-soft); }
 
 /* --- diagram --- */
 .diagram-card{ border:1px solid var(--line); border-radius:14px; background:var(--surface); padding:18px 18px 14px; margin-bottom:22px; box-shadow:var(--shadow); }
@@ -232,6 +239,7 @@ footer.doc-foot{ grid-column:1/-1; margin-top:12px; padding-top:18px; border-top
       <li><a href="#tsel" data-nav>Цель документа</a></li>
       <li><a href="#marshruty" data-nav>Маршруты возвратов</a></li>
       <li><a href="#klassifikatsiya" data-nav>Работа ФФ с возвратом</a></li>
+      <li><a href="#kontrol" data-nav>Еженедельный контроль</a></li>
     </ol>
   </nav>
 
@@ -243,19 +251,19 @@ footer.doc-foot{ grid-column:1/-1; margin-top:12px; padding-top:18px; border-top
 
     <section id="marshruty">
       <h2><span class="sec-num">2</span> Маршруты возвратов: площадка → склад</h2>
-      <p class="lead">Таблица определяет, с какой площадки возвраты и отмены поступают на какой склад и с какой периодичностью товар забирается и обрабатывается.</p>
+      <p class="lead">Таблица определяет, с какой площадки возвраты и отмены поступают на какой склад и с какой периодичностью товар забирается. Обработка забранного товара — в течение 24 часов, на всех площадках одинаково.</p>
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th>Площадка</th><th>Адрес забора возвратов</th><th>Забор</th><th>Обработка</th></tr>
+            <tr><th>Площадка</th><th>Адрес забора возвратов</th><th>Забор</th></tr>
           </thead>
           <tbody>
-            <tr><td>Ozon Егоров ВН</td><td>Великий Новгород, набережная реки Гзень, 3</td><td>ежедневно</td><td class="num">в теч. 24 ч</td></tr>
-            <tr><td>Ozon Егоров МСК Чёрная грязь</td><td>ПВЗ · Россия, Московская Область, Дурыкино, Дурыкино, 73c</td><td>в теч. 2-3 дней</td><td class="num">в теч. 24 ч</td></tr>
-            <tr><td>Ozon Егоров СПб</td><td>Великий Новгород, набережная реки Гзень, 3</td><td>По поступлениям</td><td class="num">в теч. 24 ч</td></tr>
-            <tr><td>Озон Овчинников МСК</td><td>Московская Область, Никольское, территория СНТ Искра, 14</td><td>в теч. 2-3 дней</td><td class="num">в теч. 24 ч</td></tr>
-            <tr><td>ВБ Овчинников</td><td>Великий Новгород, Большая Санкт-Петербургская улица, д. 28</td><td>По поступлениям</td><td class="num">в теч. 24 ч</td></tr>
-            <tr><td>Яндекс Маркет</td><td>г. Великий Новгород, Санкт-Петербургская 39</td><td>По поступлениям</td><td class="num">в теч. 24 ч</td></tr>
+            <tr class="mp-ozon"><td>Ozon Егоров</td><td>Великий Новгород, набережная реки Гзень, 3</td><td>ежедневно</td></tr>
+            <tr class="mp-ozon"><td>Ozon Егоров</td><td>ПВЗ · Россия, Московская Область, Дурыкино, Дурыкино, 73c</td><td>в теч. 2-3 дней</td></tr>
+            <tr class="mp-ozon"><td>Озон Овчинников</td><td>ПВЗ · Россия, Московская Область, Дурыкино, Дурыкино, 73c</td><td>в теч. 2-3 дней</td></tr>
+            <tr class="mp-wb"><td>ВБ Овчинников</td><td>Великий Новгород, Большая Санкт-Петербургская улица, д. 28</td><td>По поступлениям</td></tr>
+            <tr class="mp-ya"><td>Яндекс Маркет</td><td>деревня Радумля, деревня Радумля, 11Б</td><td>По поступлениям</td></tr>
+            <tr class="mp-ya"><td>ЕКОМ</td><td>г. Великий Новгород, Санкт-Петербургская 39</td><td>По поступлениям</td></tr>
           </tbody>
         </table>
       </div>
@@ -291,6 +299,25 @@ footer.doc-foot{ grid-column:1/-1; margin-top:12px; padding-top:18px; border-top
             <div class="item"><dt>Где вносит ФФ</dt><dd>отдельная Google-таблица.</dd></div>
             <div class="item"><dt>Поля таблицы</dt><dd>дата, артикул, статус.</dd></div>
           </dl>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontrol">
+      <h2><span class="sec-num">4</span> Еженедельный контроль исполнения</h2>
+      <p class="lead">Раз в неделю ответственный сотрудник компании сводит данные по товару из всех источников и обновляет остатки в учётной системе.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="n">1</div>
+          <div><h4>Сбор данных</h4><p>Собирает информацию по товарам из WMS фулфилмента и Google-таблицы учёта брака и списаний.</p></div>
+        </div>
+        <div class="step">
+          <div class="n">2</div>
+          <div><h4>Внесение в МойСклад</h4><p>Вносит собранные данные в программу «МойСклад».</p></div>
+        </div>
+        <div class="step">
+          <div class="n">3</div>
+          <div><h4>Обновление остатков</h4><p>Обновляет остатки товара по итогам сверки.</p></div>
         </div>
       </div>
     </section>
