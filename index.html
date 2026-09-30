@@ -104,6 +104,11 @@ section{ scroll-margin-top:20px; }
 .sec-num{ font-family:'Manrope',sans-serif; font-weight:800; color:var(--accent); }
 section h2{ font-size:22px; font-weight:800; display:flex; align-items:baseline; gap:10px; margin-bottom:12px; }
 section > .lead{ color:var(--ink-soft); margin-bottom:18px; }
+.owner-badge{
+  display:inline-flex; align-items:center; gap:6px; font-family:'Manrope',sans-serif; font-weight:800;
+  font-size:12px; letter-spacing:.04em; text-transform:uppercase; color:var(--accent-ink);
+  background:var(--accent-soft); border-radius:999px; padding:6px 13px; margin-bottom:12px;
+}
 
 /* --- table --- */
 .table-wrap{ overflow-x:auto; border:1px solid var(--line); border-radius:12px; }
@@ -261,7 +266,8 @@ footer.doc-foot{ grid-column:1/-1; margin-top:12px; padding-top:18px; border-top
             <tr class="mp-ozon"><td>Ozon Егоров</td><td>Великий Новгород, набережная реки Гзень, 3</td><td>ежедневно</td></tr>
             <tr class="mp-ozon"><td>Ozon Егоров</td><td>ПВЗ · Россия, Московская Область, Дурыкино, Дурыкино, 73c</td><td>в теч. 2-3 дней</td></tr>
             <tr class="mp-ozon"><td>Озон Овчинников</td><td>ПВЗ · Россия, Московская Область, Дурыкино, Дурыкино, 73c</td><td>в теч. 2-3 дней</td></tr>
-            <tr class="mp-wb"><td>ВБ Овчинников</td><td>Великий Новгород, Большая Санкт-Петербургская улица, д. 28</td><td>По поступлениям</td></tr>
+            <tr class="mp-ozon"><td>Озон Овчинников</td><td>Великий Новгород, набережная реки Гзень, 3</td><td>По поступлениям</td></tr>
+            <tr class="mp-wb"><td>WB Овчинников</td><td>Великий Новгород, Большая Санкт-Петербургская улица, д. 28</td><td>По поступлениям</td></tr>
             <tr class="mp-ya"><td>Яндекс Маркет</td><td>деревня Радумля, деревня Радумля, 11Б</td><td>По поступлениям</td></tr>
             <tr class="mp-ya"><td>ЕКОМ</td><td>г. Великий Новгород, Санкт-Петербургская 39</td><td>По поступлениям</td></tr>
           </tbody>
@@ -305,6 +311,7 @@ footer.doc-foot{ grid-column:1/-1; margin-top:12px; padding-top:18px; border-top
 
     <section id="kontrol">
       <h2><span class="sec-num">4</span> Еженедельный контроль исполнения</h2>
+      <div class="owner-badge">Ответственный: сотрудник компании</div>
       <p class="lead">Раз в неделю ответственный сотрудник компании сводит данные по товару из всех источников и обновляет остатки в учётной системе.</p>
       <div class="steps">
         <div class="step">
